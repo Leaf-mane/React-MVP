@@ -77,7 +77,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(67,184,75);
+    background: #43b84b;
 
     width: 33%;
     /* border-radius:47px 0px 0px 47px; */
@@ -98,7 +98,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(10,140,208);
+    background: #0a8cd0;
     width: 33%;
     max-height: 5em;
     color: #563F1B;
