@@ -39,7 +39,7 @@ const Budget = ({ budget: initialBudget, setBudget }) => {
           autoFocus
         />
       ) : (
-        <span onClick={handleEditClick}>Budget: {newBudget || 'Click to add budget'}</span>
+        <span className="budgetText" onClick={handleEditClick}>Budget: {newBudget || '[Click to add]'}</span>
       )}
     </div>
   );

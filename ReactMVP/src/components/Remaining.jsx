@@ -3,7 +3,7 @@ import React from 'react';
 const Remaining = ({ remaining }) => {
   return (
     <div className='remainingBar'>
-      <span>Remaining: ${remaining}</span>
+      <span className="remainingText">Remaining: ${remaining}</span>
     </div>
   );
 };

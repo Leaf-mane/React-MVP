@@ -91,10 +91,9 @@ const Add = ({ addExpense }) => {
             />
           </div>
         </div>
-        <br></br>
-        <div className='row'>
+        <div className='buttonBox'>
           <button type='submit' className='submitButton'>
-            Add expense
+            Submit
           </button>
         </div>
       </form>

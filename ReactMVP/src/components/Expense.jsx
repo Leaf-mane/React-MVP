@@ -12,8 +12,10 @@ const Expense = ({ id, name: initialName, amount: initialAmount, description: in
     setIsEditing(!isEditing);
   };
 
-  const handleClick = () => {
-    setExpanded(!expanded);
+  const handleClick = (e) => {
+    if(!e.target.matches('input')){
+        setExpanded(!expanded);
+    }
   };
 
   const handleDelete = async () => {
@@ -34,27 +36,59 @@ const Expense = ({ id, name: initialName, amount: initialAmount, description: in
     setIsEditing(false);
   };
 
-  const itemClasses = `expenseItem ${expanded ? 'expanded' : ''}`;
+  const itemClasses = `expenseItem ${expanded ? 'expanded' : 'closed'}`;
 
   return (
     <div className={itemClasses} onClick={handleClick}>
       <div className="main-info" onClick={handleClick}>
         {isEditing ? (
           <>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
-            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} />
-            <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+            <input
+                type="text"
+                value={name}
+                onChange={(e) => {
+                setName(e.target.value);
+                e.stopPropagation(); 
+                }}
+                />
+            <input
+                type="number"
+                value={amount}
+                onChange={(e) => {
+                setAmount(e.target.value);
+                e.stopPropagation(); 
+                }}
+            />
+            <input
+                type="text"
+                value={category}
+                onChange={(e) => {
+                setCategory(e.target.value);
+                e.stopPropagation(); 
+                }}
+            />
+            <input
+                type="text"
+                value={description}
+                onChange={(e) => {
+                setDescription(e.target.value);
+                e.stopPropagation(); 
+                }}
+            />
           </>
         ) : (
           <>
-            <span>{name}:</span>
-            <span>${amount}</span>
-            <button onClick={handleDelete}>Delete</button>
-            <button onClick={toggleEdit}>Edit</button>
+            <div className="names">
+                <span className="itemName">{name}:</span>
+                <span className="costName">-${amount}</span>
+            </div>
+            <div className="buttons">
+                <button className="editButton" onClick={toggleEdit}></button>
+                <button className="deleteButton" onClick={handleDelete}></button>
+            </div>
           </>
         )}
-        {isEditing && <button onClick={handleUpdate}>Save</button>}
+        {isEditing && <button className="saveButton"onClick={handleUpdate}>Save</button>}
       </div>
       {expanded && (
         <div className="additional-info">

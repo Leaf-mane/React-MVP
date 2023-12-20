@@ -1,135 +1,328 @@
-html {
-    max-height: 100%;
-    max-width: 100%;
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
-
+root{
+    height: 100%;
+    width: 100%;
+}
 *{
-
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
 }
 body{
-    margin: 5%;
-    background-color: #F2EFE9;
-    overflow-y: scroll;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url(../img/bg.png)
 }
 .container{
     display: flex;
     flex-direction: column;
+    width: 65vw;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255);
+    box-shadow: 0px 0px 64px 0px rgba(77,77,77,0.75);
 }
-.topbar{
+.addBox{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 8em;
-    background-color: #F2EFE9;
-    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1%;
 }
 .add{
     display: flex;
     flex-direction: column;
-    background-color: #BFB48F;
+
     /* padding: 10px; */
     padding-top: 2%;
-    justify-content: space-around;
-    height: 5%;
-    top: 14%;
+    padding-left: 2%;
+    padding-right: 2%;
+    justify-content: center;
+    height: 10vh;
     width: 100%;
     max-width: 100%;
 }
 .expenseList{
-    background-color: #BFB48F;
+
     width: 100%;
-    overflow-y: scroll;
     overflow-x: hidden;
-    top: 20%;
+    overflow-y: scroll;
+    padding-right: 3%;
+    height: 70vh;
 }
 .listContainer{
-    background-color: rgb(173, 162, 138);
-    overflow-y: hidden;
+
     display: flex;
     overflow-x: hidden;
     width: 100%;
+
+    height: 75%;
+    max-height: 75%;
 }
 .topbar{
-    background-color: #F2EFE9;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
     padding: 0;
-    height: 8em;
+    height: 10vh;
 }
 .budgetBar{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F7F052;
+    background: rgb(67,184,75);
+
     width: 33%;
-    border-radius:47px 0px 0px 47px;
+    /* border-radius:47px 0px 0px 47px; */
     max-height: 5em;
     color: #563F1B;
     font-size: 20px;
-    height: 75%;
+    height: 100%;
+    transition: font-size 2s ease;
+    transition: border-radius font-size .3s linear;
+}
+.budgetBar:hover{
+    font-size: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-wrap: nowrap;
 }
 .remainingBar{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F28123;
+    background: rgb(10,140,208);
     width: 33%;
     max-height: 5em;
     color: #563F1B;
     font-size: 20px;
-    height: 75%;
+    height: 100%;
+    transition: font-size 2s ease;
+    transition: border-radius font-size .3s linear;
+}
+.remainingBar:hover{
+    font-size:30px;
+    border-radius: 5px;
+    text-wrap: nowrap;
 }
 .totalBar{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #D34E24;
+    background: rgb(67,184,75);
     width: 33%;
-    border-radius: 0px 47px 47px 0px;
     max-height: 5em;
     color: #563F1B;
     font-size: 20px;
-    height: 75%;
+    height: 100%;
+    transition: font-size 2s ease;
+    transition: border-radius font-size .3s linear;
+}
+.totalBar:hover{
+    font-size: 30px;
+    border-radius: 5px;
+    text-wrap: nowrap;
 }
 .submitButton{
-    border-radius: 5px;
+    border-radius: 15px;
     height: 30%;
-    color: white;
-    background-color: #3C3C3B
+    color: rgb(255, 255, 255);
+    background-color: #3f76c9;
+    cursor: pointer;
+    height: 100%;
+    border: none;
+}
+.submitButton:hover{
+    color:#3f76c9;
+    background-color:white;
+    border: 1px solid #3f76c9;
 }
 .nameEntry{
-    width: 50%;
+    width: 25%;
     height: 50%;
 }
 .costEntry{
-    width: 50%;
+    width: 25%;
     height: 50%;
 }
 .catEntry{
-    width: 50%;
+    width: 25%;
     height: 50%;
 }
 .descEntry{
-    width: 50%;
+    width: 25%;
     height: 50%;
 }
 .row{
     display: flex;
+    width: 100%;
 }
 .expenseItem{
     display: flex;
     width: 100%;
     flex-direction: column;
     cursor: pointer;
+    max-height: 5%;
+    user-select: none;
+}
+.expenseItem:hover{
+    color:#35ad35;
+    background-color:rgb(240, 240, 240);
+    
 }
 .expanded{
-    height: 10%;
-    color: white;
+    max-height: 10%;
+    color:rgb(0, 0, 0);
+    font-size: 1.5rem;
+    border: none;
+    background-color: #93c593;
+    transition: height 0.3s ease, font-size 0.5s ease, opacity 0.5s ease;
+}
+.additional-info{
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+}
+.additional-info:hover{
+    color:black;
 }
 .main-info{
+    border-top: 2px solid rgb(218, 218, 218);
     width: 100%;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    position: relative;
+}
+.names{
+    display: flex;
+    padding-bottom: 5px;
+    justify-content: space-between;
+}
+.budgetText, .remainingText, .totalText{
+
+    color: white;
+}
+ul{
+    list-style: none;
+}
+input[type="text"] {
+    font-size: 16px;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #a3a3a3; 
+  }
+  input[type="number"] {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px;
+  }
+  input[type="number"]:focus {
+    outline: none; 
+    border-color: #a3a3a3; 
+  }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c2c2c2;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2bb432; 
+  }
+form{
+    display: flex;
+    width: 100%;
+}
+.buttonBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-left: 10%;
+    width: 10%;
+}
+.form-entry{
+    width: 75%;
+}
+.deleteButton{
+    background-image: url(../img/delete.png);
+    background-size: contain;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(214, 214, 214);
+    border: none;
+    border-radius: 10px;
+    margin-left: 25px;
+}
+.deleteButton:hover{
+    background-color: rgb(255, 255, 255);
+}
+.editButton{
+    background-image: url(../img/edit.png);
+    background-size: contain;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(214, 214, 214);
+    border: none;
+    border-radius: 10px;
+    z-index: 200;
+}
+.editButton:hover{
+    background-color:rgb(255, 255, 255);
+}
+.costName{
+    color: rgb(221, 28, 28);
+}
+.buttons{
+    display: flex;
+    position: absolute;
+    right: 10%;
+}
+
+.logo{
+    height: 70px;
+}
+.brand{
+    font-size: 2rem;
+    color: rgb(70, 123, 194);
+}
+.saveButton{
+    height: 2rem;
+    border: none;
+    width: 25%;
+    align-self: center;
+}
+.saveButton:hover{
+    background-color: #3f76c9;
+    color: white;
+    border: none;
 }

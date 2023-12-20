@@ -78,14 +78,19 @@ function App() {
   return (
       <div className='body'>
         <div className='container'>
+          <div className="logobar">
+            <br></br>
+            <span className="brand"><img className="logo" src="../img/b.png"/>udgey</span>
+            <br></br>
+          </div>
           <div className='topbar'>
             <Budget setBudget={setBudget}/>
             <Remaining budget={budget} expenses={expenses} remaining={remainingBudget}/>
             <Total budget={budget} expenses={expenses} totalExpenses={totalExpenses}/>
           </div>
-          <br></br>
-          <Add addExpense={addExpense}/>
-          <br></br>
+          <div className="addBox">
+            <Add addExpense={addExpense}/>
+          </div>
           <div className="listContainer">
             <Expenses 
             expenseListItems={expenses} 
