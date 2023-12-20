@@ -1,0 +1,135 @@
+html {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+*{
+
+}
+body{
+    margin: 5%;
+    background-color: #F2EFE9;
+    overflow-y: scroll;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.topbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 8em;
+    background-color: #F2EFE9;
+    width: 100%;
+}
+.add{
+    display: flex;
+    flex-direction: column;
+    background-color: #BFB48F;
+    /* padding: 10px; */
+    padding-top: 2%;
+    justify-content: space-around;
+    height: 5%;
+    top: 14%;
+    width: 100%;
+    max-width: 100%;
+}
+.expenseList{
+    background-color: #BFB48F;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    top: 20%;
+}
+.listContainer{
+    background-color: rgb(173, 162, 138);
+    overflow-y: hidden;
+    display: flex;
+    overflow-x: hidden;
+    width: 100%;
+}
+.topbar{
+    background-color: #F2EFE9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 8em;
+}
+.budgetBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7F052;
+    width: 33%;
+    border-radius:47px 0px 0px 47px;
+    max-height: 5em;
+    color: #563F1B;
+    font-size: 20px;
+    height: 75%;
+}
+.remainingBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F28123;
+    width: 33%;
+    max-height: 5em;
+    color: #563F1B;
+    font-size: 20px;
+    height: 75%;
+}
+.totalBar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D34E24;
+    width: 33%;
+    border-radius: 0px 47px 47px 0px;
+    max-height: 5em;
+    color: #563F1B;
+    font-size: 20px;
+    height: 75%;
+}
+.submitButton{
+    border-radius: 5px;
+    height: 30%;
+    color: white;
+    background-color: #3C3C3B
+}
+.nameEntry{
+    width: 50%;
+    height: 50%;
+}
+.costEntry{
+    width: 50%;
+    height: 50%;
+}
+.catEntry{
+    width: 50%;
+    height: 50%;
+}
+.descEntry{
+    width: 50%;
+    height: 50%;
+}
+.row{
+    display: flex;
+}
+.expenseItem{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    cursor: pointer;
+}
+.expanded{
+    height: 10%;
+    color: white;
+}
+.main-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
