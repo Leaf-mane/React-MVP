@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Remaining = () => {
-    return (
-        <div className ="remainingBar">
-            <span>Your remaining Funds</span>
-        </div>
-    )
-}
+const Remaining = ({ remaining }) => {
+  return (
+    <div className='remainingBar'>
+      <span>Remaining: ${remaining}</span>
+    </div>
+  );
+};
+
 export default Remaining;

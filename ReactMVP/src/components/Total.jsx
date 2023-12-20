@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-const Total = () => {
-    return (
-        <div className="totalBar">
-            <span>Total goes here</span>
-        </div>
-    )
-}
+const Total = ({ totalExpenses }) => {
+  return (
+    <div className='totalBar'>
+      <span>Total Expenses: ${totalExpenses}</span>
+    </div>
+  );
+};
 
-export default Total
+export default Total;

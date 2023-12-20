@@ -1,10 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-const Budget = () => {
-    return(
-        <div className='budgetBar'>
-            <span>Budget goes here</span>
-        </div>
-    )
-}
+const Budget = ({ budget: initialBudget, setBudget }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newBudget, setNewBudget] = useState(initialBudget || '');
+
+  useEffect(() => {
+    setNewBudget(initialBudget);
+  }, [initialBudget]);
+
+  const handleInputChange = (event) => {
+    setNewBudget(event.target.value);
+  };
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    setBudget(newBudget);
+    setIsEditing(false);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSave();
+    }
+  };
+
+  return (
+    <div className='budgetBar'>
+      {isEditing ? (
+        <input
+          type='number'
+          value={newBudget}
+          onChange={handleInputChange}
+          onBlur={handleSave}
+          onKeyDown={handleKeyPress}
+          autoFocus
+        />
+      ) : (
+        <span onClick={handleEditClick}>Budget: {newBudget || 'Click to add budget'}</span>
+      )}
+    </div>
+  );
+};
+
 export default Budget;

@@ -12,21 +12,24 @@ import { useSupabase } from './SupabaseContext.jsx';
 function App() {
   const supabase = useSupabase();
   const [expenses, setExpenses] = useState([]);
+  const [budget, setBudget] = useState(0);
+  const totalExpenses = expenses.reduce((total, expense) => total + expense.amount, 0)
+  const remainingBudget = budget - totalExpenses;
+
   const addExpense = (newExpense) => {
     setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
   };
-  //Get
+
+  //Get (fetch expenses)
   useEffect(() => {
     async function fetchExpenses() {
       try {
         let { data: expensesData, error } = await supabase
           .from('expense')
           .select('*');
-          
         if (error) {
           throw error;
         }
-
         setExpenses(expensesData);
       } catch (error) {
         console.error('Error fetching expenses:', error);
@@ -34,7 +37,8 @@ function App() {
     }
     
     fetchExpenses();
-  }, []);
+  }, [supabase]);
+
   //Delete
   const deleteExpense = async (id) => {
     try {
@@ -75,15 +79,19 @@ function App() {
       <div className='body'>
         <div className='container'>
           <div className='topbar'>
-            <Budget />
-            <Remaining />
-            <Total />
+            <Budget setBudget={setBudget}/>
+            <Remaining budget={budget} expenses={expenses} remaining={remainingBudget}/>
+            <Total budget={budget} expenses={expenses} totalExpenses={totalExpenses}/>
           </div>
           <br></br>
           <Add addExpense={addExpense}/>
           <br></br>
           <div className="listContainer">
-            <Expenses expenseListItems={expenses} deleteExpense={deleteExpense} updateExpense={updateExpense}/>
+            <Expenses 
+            expenseListItems={expenses} 
+            deleteExpense={deleteExpense}
+            updateExpense={updateExpense}
+            />
           </div>
         </div>
       </div>
